@@ -11,23 +11,23 @@ _CLASES_DB = [
         'descripcion': 'Conceptos fundamentales de límites y derivadas.',
         'url_video': 'https://storage.platform.com/videos/clase-a1.mp4',
         'url_portada': 'https://placehold.co/600x400/3B5998/ffffff?text=Cálculo',
-        'duracion_segundos': 3600, # 1 hora
+        'duracion_segundos': 3600,
         'vistas': 5500,
         'fecha_hora': datetime(2025, 10, 25, 15, 0, 0).isoformat(),
-        'es_vivo': False # Clase grabada
+        'es_vivo': False 
     },
     {
         'id_clase': 'clase-b2',
-        'id_tutor': 'user-303', # Otro tutor
+        'id_tutor': 'user-303', 
         'id_materia': 'prog-1',
         'titulo': 'Programación Orientada a Objetos: Polimorfismo',
         'descripcion': 'Sesión en vivo sobre herencia y polimorfismo en Python.',
         'url_video': 'https://storage.platform.com/live/clase-b2-stream.m3u8',
         'url_portada': 'https://placehold.co/600x400/6A5ACD/ffffff?text=POO',
-        'duracion_segundos': 0, # Duración indeterminada para en vivo
+        'duracion_segundos': 0,
         'vistas': 150,
         'fecha_hora': datetime.now().isoformat(),
-        'es_vivo': True # Stream activo
+        'es_vivo': True 
     },
 ]
 
@@ -77,7 +77,6 @@ class Clase:
 
         for i, c in enumerate(_CLASES_DB):
             if c['id_clase'] == id_clase:
-                # Actualizar solo los campos proporcionados
                 for key, value in datos.items():
                     if key in c:
                         _CLASES_DB[i][key] = value
@@ -122,7 +121,6 @@ if __name__ == "__main__":
     
     print("--- PRUEBA DE CLASE CLASE ---")
 
-    # 1. Crear una nueva clase
     nueva_clase_datos = {
         'titulo': 'Introducción a Machine Learning',
         'descripcion': 'Primeros pasos con librerías de ML en Python.',
@@ -152,3 +150,4 @@ if __name__ == "__main__":
     print(f"\nTotal de clases restantes: {len(_CLASES_DB)}")
     for clase in _CLASES_DB:
         print(f"- {clase['titulo']} (Tutor: {clase['id_tutor']})")
+
