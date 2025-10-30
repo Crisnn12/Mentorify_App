@@ -5,19 +5,19 @@ from typing import List, Dict, Optional
 _MENSAJES_DB = [
     {
         'id_chat': str(uuid.uuid4()),
-        'id_remitente': 'user-101',  # Estudiante
-        'id_destinatario': 'user-202', # Tutor
+        'id_remitente': 'user-101',  
+        'id_destinatario': 'user-202', 
         'contenido_mensaje': 'Profesor, ¿podría explicarme la recursividad simple?',
         'timestamp': datetime(2025, 10, 28, 10, 30, 0).isoformat(),
         'leido': True
     },
     {
         'id_chat': str(uuid.uuid4()),
-        'id_remitente': 'user-202', # Tutor
-        'id_destinatario': 'user-101',  # Estudiante
+        'id_remitente': 'user-202', 
+        'id_destinatario': 'user-101', 
         'contenido_mensaje': '¡Hola! Sí, claro. ¿Qué día te vendría bien para una sesión en vivo?',
         'timestamp': datetime(2025, 10, 28, 10, 31, 30).isoformat(),
-        'leido': False # Simula un mensaje no leído
+        'leido': False 
     },
 ]
 
@@ -25,12 +25,11 @@ class Mensaje:
     def __init__(self, id_remitente: str, id_destinatario: str, contenido_mensaje: str,
                  id_chat: Optional[str] = None, timestamp: Optional[str] = None, leido: bool = False):
 
-        # Atributos
+     
         self.id_chat = id_chat if id_chat else str(uuid.uuid4())
         self.id_remitente = id_remitente
         self.id_destinatario = id_destinatario
         self.contenido_mensaje = contenido_mensaje
-        # Usamos el timestamp provisto o la hora actual
         self.timestamp = timestamp if timestamp else datetime.now().isoformat()
         self.leido = leido
 
@@ -45,10 +44,9 @@ class Mensaje:
             id_remitente=id_remitente,
             id_destinatario=id_destinatario,
             contenido_mensaje=contenido,
-            leido=False # Por defecto, el receptor aún no lo ha leído
+            leido=False 
         )
-        
-        # Simulación de inserción
+
         _MENSAJES_DB.append({
             'id_chat': nuevo_mensaje.id_chat,
             'id_remitente': nuevo_mensaje.id_remitente,
@@ -119,3 +117,4 @@ if __name__ == "__main__":
     for msg in conversacion_final:
         print(f"- [{msg.timestamp[:19]}] De: {msg.id_remitente} | Leído: {msg.leido} | '{msg.contenido_mensaje[:30]}...'")
     
+
