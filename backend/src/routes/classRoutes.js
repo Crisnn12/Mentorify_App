@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const classControllers = require('../controllers/classControllers');
+const classController = require('../controllers/classControllers');
 
-router.get('/', classControllers.getClasses);
+router.get('/live', classController.getLiveClasses); 
+router.get('/', classController.getClasses);
+router.get('/:id', classController.getClassById); 
+router.post('/', classController.createClass); 
 
-router.post('/', classControllers.createClass); 
 
 module.exports = router;
